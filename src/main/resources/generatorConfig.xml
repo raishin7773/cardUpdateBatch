@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+
+<generatorConfiguration>
+    <context id="context1" targetRuntime="MyBatis3">
+
+        <!-- スキーマ情報を取得する DB への接続設定 -->
+        <jdbcConnection driverClass="org.mariadb.jdbc.Driver"
+                        connectionURL= "%{url}"
+                        userId="%{username}"
+                        password="%{Yuki@0007}">
+        </jdbcConnection>
+
+        <!-- SELECT 結果等を格納するドメインモデルを生成する設定 -->
+        <javaModelGenerator targetPackage="com.raishin.cardbatch.domain" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- マッパークラスを生成する設定 -->
+        <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="com.raishin.cardbatch.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!-- コードを生成するテーブルを指定 -->
+        <table tableName="datas">
+        </table>
+
+    </context>
+</generatorConfiguration>
